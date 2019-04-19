@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slide demo</title>
+	
+	<style>
+		.container {
+			width: 600px;
+			min-width: 100px;
+			margin: 60px auto;
+			text-align: center;
+		}
+		.slide-wpt {
+			width: 600px;
+			height: 200px;
+			margin-top: 30px;
+			font-size: 30px;
+			color: #fff;
+		}
+
+		.slide-wpt > div > div:nth-child(1) {
+			background-color: #fa8c16;
+		}
+		.slide-wpt > div > div:nth-child(2) {
+			background-color: #7cb305;
+		}
+		.slide-wpt > div > div:nth-child(3) {
+			background-color: #096dd9;
+		}
+		.slide-wpt > div > div:nth-child(4) {
+			background-color: #eb2f96;
+		}
+		.slide-wpt > div > div:nth-child(5) {
+			background-color: #fa8c16;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="slide-wpt">
+			<div id="slideWpt1" >
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+		</div>
+		<div class="slide-wpt">
+			<div id="slideWpt2" >
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+		</div>
+		<div class="slide-wpt">
+			<div id="slideWpt3" >
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+		</div>
+		<div class="slide-wpt">
+			<div id="slideWpt4" >
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+	<script src="./index.js"></script>
+	<script>
+		$(function(){
+			var slide1 = new Slide('#slideWpt1', {
+                auto: true,
+            });
+            slide1.init();
+
+            var slide2 = new Slide('#slideWpt2', {
+                auto: true,
+                direction: false,
+            });
+            slide2.init();
+
+            var slide3 = new Slide('#slideWpt3', {
+                auto: true,
+                mode: 'horizontal',
+            });
+            slide3.init();
+
+            var slide4 = new Slide('#slideWpt4', {
+                auto: true,
+                mode: 'horizontal',
+                direction: false
+            });
+            slide4.init();
+
+            var timer = null;
+
+            $(window).on('resize', function(){
+	            // 节流
+	            clearTimeout(timer);
+	            slide1.stop();
+	            slide2.stop();
+	            slide3.stop();
+	            slide4.stop();
+	            timer = setTimeout(function() {
+	            	slide1.play();
+	            	slide2.play();
+	            	slide3.play();
+	            	slide4.play();
+	            }, 300);
+	        });
+		});
+	</script>
+</body>
+</html>
