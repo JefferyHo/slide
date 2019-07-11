@@ -16,4 +16,4 @@
 
 
 ---
-#### MIT license
+#### MIT license.
